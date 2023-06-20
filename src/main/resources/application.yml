@@ -1,0 +1,34 @@
+spring:
+  batch:
+    job:
+      names: ${job.name:NONE}
+
+---
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@[ORACLE DATABASE IP]:[ORACLE DATABASE PORT]:[ORACLE DATABASE SID]
+    username: YOUTUBE
+    password: youtube
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  jpa:
+    database: oracle
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  batch:
+    jdbc:
+      initialize-schema: always
+
+youtube:
+  api-key: [YOUTUBE API KEY]
+
+logging:
+  level:
+    sql: debug
