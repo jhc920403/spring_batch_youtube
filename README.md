@@ -48,6 +48,7 @@ logging:
     sql: debug
 ```
 
+<br><br>
 
 ##  ⚙ 사용한 기능
   1. `Spring Boot:2.7.12`
