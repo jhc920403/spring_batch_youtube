@@ -4,6 +4,51 @@
 
 <br><br>
 
+## 실행 명령어
+- [Channel ID]: 다수의 채널 ID를 받을 수 있으며, 구분자는 `,`(쉼표)로 작성한다.<br>
+  `--spring.batch.job.names=youtubeCrawlingChannelIdJob channelId=[Channel ID]`
+
+<br><br>
+
+## Batch Properties(yml 파일)
+```yml
+spring:
+  batch:
+    job:
+      names: ${job.name:NONE}
+
+---
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@[ORACLE DATABASE IP]:[ORACLE DATABASE PORT]:[ORACLE DATABASE SID]
+    username: [username]
+    password: [password]
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  jpa:
+    database: oracle
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  batch:
+    jdbc:
+      initialize-schema: always
+
+youtube:
+  api-key: [YOUTUBE API KEY]
+
+logging:
+  level:
+    sql: debug
+```
+
+
 ##  ⚙ 사용한 기능
   1. `Spring Boot:2.7.12`
   2. `Spring Batch:4.3.8`
