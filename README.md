@@ -78,7 +78,7 @@ Google API 정보는 특정 IP가 아닌 DNS 기반으로 수집되기 때문에
 
 <br><br>
 
-## Youtube Data API Lib
+##  📚 Youtube Data API Lib
 Youtube Lib는 Java1.8 이상부터 사용할 수 있다는 제약이 있다.
 - `google-api-client-[version].jar`
 - `google-api-services-youtube-v3-[version].jar`
