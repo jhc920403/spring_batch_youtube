@@ -1,6 +1,6 @@
 # Youtube Crawling
 
-🛠 Youtube Data API v3를 사용하여 Channel ID를 기준으로 해당 채널의 동영상 정보를 수집해오는 기능을 수행하는 배치입니다.
+🛠 Youtube Data API v3를 사용하여 Channel ID를 기준으로 해당 채널의 동영상 정보를 수집해오는 기능을 수행하는 배치입니다. (스프링 배치 사용/학습 목적)
 
 <br><br>
 
