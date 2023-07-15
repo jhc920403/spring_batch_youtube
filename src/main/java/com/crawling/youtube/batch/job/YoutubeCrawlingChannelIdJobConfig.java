@@ -96,10 +96,8 @@ public class YoutubeCrawlingChannelIdJobConfig {
     ) {
         FlowBuilder<Flow> builder = new FlowBuilder<>("getVideoFlow");
         builder.start(youtubeCrawlingGetUploadIdAndPlayListIdStep)
-                .on("CONTINUABLE")
+                .on("*")
                 .to(youtubeCrawlingGetPlaylistItemsStep)
-                //.next(youtubeCrawlingGetUploadIdAndPlayListIdStep)
-                .from(youtubeCrawlingGetUploadIdAndPlayListIdStep)
                 .on("*").end();
         return builder.build();
     }
