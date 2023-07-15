@@ -21,6 +21,17 @@
 
 <br><br>
 
+##  🚫 방화벽 오픈 정보
+Google API 정보는 특정 IP가 아닌 DNS 기반으로 수집되기 때문에 `nslookup`으로 조회한 IP도 변동이 생겨 수집에 문제가 발생한다.
+<br>문제를 해결할 수 있는 방법은 IP 대역을 알아내거나 DNS를 사용하여 API 통신하면 된다.
+<br>다만, 실무에서는 외부망과 통신은 제한적으로만 오픈되기 때문에 오픈 정보가 필요하며, 구현하면서 획득한 정보이다.
+
+🌐 DNS 정보 : `https://www.googleapis.com/`<br>Youtube에서 제공하는 `Lib`를 사용하는 경우 `google-api-services-youtube-v3-[version].jar` > `Youtube.class` 경로 내에서 확인할 수 있다.
+🌐 IP 대역 정보 : `https://support.google.com/a/answer/10026322?hl=en`에서 CIDR 형태로 확인 가능
+🌐 DNS/IP PORT 정보 : 443
+
+<br><br>
+
 ##  💾 데이터베이스 테이블 정보 
 ![image](https://github.com/jhc920403/spring_batch_youtube/assets/135422171/db70a747-1389-435a-baf3-801a063ccfc4)
 
