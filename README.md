@@ -21,7 +21,8 @@
 
 <br><br>
 
-##  💾 데이터베이스 테이블 정보 <br>![image](https://github.com/jhc920403/spring_batch_youtube/assets/135422171/db70a747-1389-435a-baf3-801a063ccfc4)
+##  💾 데이터베이스 테이블 정보 
+![image](https://github.com/jhc920403/spring_batch_youtube/assets/135422171/db70a747-1389-435a-baf3-801a063ccfc4)
 
 테이블은 2개로 구성
 - `YOUTUBE_CHANNEL`  : Youtube Channel의 동영상 업로드/재생목록 정보를 저장
