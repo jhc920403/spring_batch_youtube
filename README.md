@@ -1,16 +1,16 @@
-# Youtube Crawling
+#  🛠 Youtube Crawling
 
-🛠 Youtube Data API v3를 사용하여 Channel ID를 기준으로 해당 채널의 동영상 정보를 수집해오는 기능을 수행하는 배치입니다. (스프링 배치 사용/학습 목적)
+Youtube Data API v3를 사용하여 Channel ID를 기준으로 해당 채널의 동영상 정보를 수집해오는 기능을 수행하는 배치입니다. (스프링 배치 사용/학습 목적)
 
 <br><br>
 
-## 실행 명령어
+##  🎯 실행 명령어
 - [Channel ID]: 다수의 채널 ID를 받을 수 있으며, 구분자는 `,`(쉼표)로 작성한다.<br>
   `--spring.batch.job.names=youtubeCrawlingChannelIdJob channelId=[Channel ID]`
 
 <br><br>
 
-## Batch Properties(yml 파일)
+##  🔗 Batch Properties(yml 파일)
 ```yml
 spring:
   batch:
