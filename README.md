@@ -2,6 +2,19 @@
 
 🛠 Youtube Data API v3를 사용하여 Channel ID를 기준으로 해당 채널의 동영상 정보를 수집해오는 기능을 수행하는 배치입니다.
 
+⚙ 사용한 기능
+  1. `Spring Boot:2.7.12`
+  2. `Spring Batch:4.3.8`
+  3. `Spring Data JPA:2.7.12`
+  4. `Oracle 19c`
+
+📆 코드 작성 필요 사항
+  1. `Spring Batch` 를 사용한 Youtube Channel / 영상정보 획득 ✔
+  2. `Spring Data JPA` 를 사용한 데이터 저장
+     1. `JPA` 기본적인 기능을 사용하여 데이터베이스 조작 ✔
+     2. `Spring Data JPA` 의 Repository를 구현하여 데이터베이스 조작 ✖
+  3. `Junit` 을 사용하여 Test 코드 작성 ✖
+
 💾 데이터베이스 테이블 정보 <br>![image](https://github.com/jhc920403/spring_batch_youtube/assets/135422171/db70a747-1389-435a-baf3-801a063ccfc4)
 
 테이블은 2개로 구성
@@ -45,7 +58,7 @@
     COMMENT ON COLUMN YOUTUBE_CHANNEL.THUMBNAIL_DEFAULT IS 'YOUTUBE CHANNEL의 THUMBNAIL';
     COMMENT ON COLUMN YOUTUBE_CHANNEL.THUMBNAIL_MEDIUM IS 'YOUTUBE CHANNEL의 THUMBNAIL';
     COMMENT ON COLUMN YOUTUBE_CHANNEL.THUMBNAIL_HIGH IS 'YOUTUBE CHANNEL의 THUMBNAIL';
-    COMMENT ON COLUMN YOUTUBE_CHANNEL.USE_YN IS 'YOUTUBE CHANNEL의 사용 활성화 여부;
+    COMMENT ON COLUMN YOUTUBE_CHANNEL.USE_YN IS 'YOUTUBE CHANNEL의 사용 활성화 여부';
     COMMENT ON COLUMN YOUTUBE_CHANNEL.PUBLISHED_AT IS 'YOUTUBE CHANNEL/PLAYLIST 배포 일자';
     COMMENT ON COLUMN YOUTUBE_CHANNEL.CREATE_DATE IS 'YOUTUBE CHANNEL TABLE의 COLUMN 등록 일자';
     COMMENT ON COLUMN YOUTUBE_CHANNEL.MODIFIED_DATE IS 'YOUTUBE CHANNEL TABLE의 COLUMN 수정 일자';
