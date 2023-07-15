@@ -24,7 +24,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -37,63 +36,17 @@ public class YoutubeCrawlingChannelIdJobConfig {
 
     private final YoutubeApiService youtubeApiService;
     private final YoutubeChannelRepository youtubeChannelRepository;
-    private List<String> publicStorage;
 
     @Bean
     public Job youtubeCrawlingChannelIdJob(
-            Step getChannelAndUploadIdStep
+            Step youtubeCrawlingChannelIdStep
             , Step getVideoStep
     ) {
         return jobBuilderFactory.get("youtubeCrawlingChannelIdJob")
                 .incrementer(new RunIdIncrementer())
-                .start(getChannelAndUploadIdStep)
+                .start(youtubeCrawlingChannelIdStep)
                 .next(getVideoStep)
                 .build();
-    }
-
-    @Bean
-    public Step getChannelAndUploadIdStep(
-            Flow getChannelAndUploadIdFlow
-    ) {
-
-        return stepBuilderFactory.get("getChannelAndUploadIdStep")
-                .flow(getChannelAndUploadIdFlow)
-                .build();
-    }
-
-    @Bean
-    public Flow getChannelAndUploadIdFlow(
-            Step youtubeCrawlingChannelIdStep
-    ) {
-        FlowBuilder<Flow> builder = new FlowBuilder<>("getChannelAndUploadIdFlow");
-        builder.start(youtubeCrawlingChannelIdStep)
-                .end();
-        return builder.build();
-    }
-
-    @Bean
-    public Step getVideoStep(
-            Flow getVideoFlow
-    ) {
-        return stepBuilderFactory.get("getVideoStep")
-                .flow(getVideoFlow)
-                .build();
-    }
-
-    @Bean
-    @JobScope
-    public Flow getVideoFlow(
-            Step youtubeCrawlingGetUploadIdAndPlayListIdStep
-            , Step youtubeCrawlingGetPlaylistItemsStep
-    ) {
-        FlowBuilder<Flow> builder = new FlowBuilder<>("getVideoFlow");
-        builder.start(youtubeCrawlingGetUploadIdAndPlayListIdStep)
-                    .on("CONTINUABLE")
-                    .to(youtubeCrawlingGetPlaylistItemsStep)
-                    //.next(youtubeCrawlingGetUploadIdAndPlayListIdStep)
-                .from(youtubeCrawlingGetUploadIdAndPlayListIdStep)
-                    .on("*").end();
-        return builder.build();
     }
 
     /**
@@ -125,6 +78,31 @@ public class YoutubeCrawlingChannelIdJobConfig {
 
     /**
      * YOUTUBE VIDEO 정보를 가져오기 위한 STEP
+     */
+    @Bean
+    public Step getVideoStep(
+            Flow getVideoFlow
+    ) {
+        return stepBuilderFactory.get("getVideoStep")
+                .flow(getVideoFlow)
+                .build();
+    }
+
+    @Bean
+    @JobScope
+    public Flow getVideoFlow(
+            Step youtubeCrawlingGetUploadIdAndPlayListIdStep
+            , Step youtubeCrawlingGetPlaylistItemsStep
+    ) {
+        FlowBuilder<Flow> builder = new FlowBuilder<>("getVideoFlow");
+        builder.start(youtubeCrawlingGetUploadIdAndPlayListIdStep)
+                .on("*")
+                .to(youtubeCrawlingGetPlaylistItemsStep)
+                .on("*").end();
+        return builder.build();
+    }
+
+    /**
      * 1. Tasklet으로 UPLOAD ID / PLAYLIST ID 한 개씩 조회
      */
     @Bean
@@ -146,7 +124,6 @@ public class YoutubeCrawlingChannelIdJobConfig {
         return new YoutubeChannelAndPlaylistTasklet(
                 youtubeChannelRepository
                 , channelId
-                , publicStorage
         );
     }
 
