@@ -12,7 +12,7 @@
 
 <br><br>
 
-##  📆 코드 작성 필요 사항
+##  📆 코드 작성 사항
   1. `Spring Batch` 를 사용한 Youtube Channel / 영상정보 획득 ✔
   2. `Spring Data JPA` 를 사용한 데이터 저장
      1. `JPA` 기본적인 기능을 사용하여 데이터베이스 조작 ✔
@@ -29,6 +29,17 @@ Google API 정보는 특정 IP가 아닌 DNS 기반으로 수집되기 때문에
 🌐 DNS 정보 : `https://www.googleapis.com/`<br>Youtube에서 제공하는 `Lib`를 사용하는 경우 `google-api-services-youtube-v3-[version].jar` > `Youtube.class` 경로 내에서 확인할 수 있다.<br>
 🌐 IP 대역 정보 : `https://support.google.com/a/answer/10026322?hl=en`에서 CIDR 형태로 확인 가능<br>
 🌐 DNS/IP PORT 정보 : 443
+
+<br><br>
+
+## Youtube Data API Lib
+Youtube Lib는 Java1.8 이상부터 사용할 수 있다는 제약이 있다.
+- `google-api-client-[version].jar`
+- `google-api-services-youtube-v3-[version].jar`
+- `google-http-client-[version].jar`
+- `google-http-client-jackson2-[version].jar`
+- `guava-jdk5-[version].jar`
+- `jackson-core-[version].jar`
 
 <br><br>
 
