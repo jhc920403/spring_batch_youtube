@@ -7,7 +7,7 @@ spring:
 
 spring:
   datasource:
-    url: jdbc:oracle:thin:@[ORACLE DATABASE IP]:[ORACLE DATABASE PORT]:[ORACLE DATABASE SID]
+    url: jdbc:oracle:thin:@1.235.70.245:1521:NEODB
     username: YOUTUBE
     password: youtube
     driver-class-name: oracle.jdbc.OracleDriver
@@ -27,7 +27,7 @@ spring:
       initialize-schema: always
 
 youtube:
-  api-key: [YOUTUBE API KEY]
+  api-key: AIzaSyAP4rwqb-luIUghDusPujwely5sPCWq3RU
 
 logging:
   level:
