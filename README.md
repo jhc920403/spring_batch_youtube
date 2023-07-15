@@ -26,8 +26,8 @@ Google API 정보는 특정 IP가 아닌 DNS 기반으로 수집되기 때문에
 <br>문제를 해결할 수 있는 방법은 IP 대역을 알아내거나 DNS를 사용하여 API 통신하면 된다.
 <br>다만, 실무에서는 외부망과 통신은 제한적으로만 오픈되기 때문에 오픈 정보가 필요하며, 구현하면서 획득한 정보이다.
 
-🌐 DNS 정보 : `https://www.googleapis.com/`<br>Youtube에서 제공하는 `Lib`를 사용하는 경우 `google-api-services-youtube-v3-[version].jar` > `Youtube.class` 경로 내에서 확인할 수 있다.
-🌐 IP 대역 정보 : `https://support.google.com/a/answer/10026322?hl=en`에서 CIDR 형태로 확인 가능
+🌐 DNS 정보 : `https://www.googleapis.com/`<br>Youtube에서 제공하는 `Lib`를 사용하는 경우 `google-api-services-youtube-v3-[version].jar` > `Youtube.class` 경로 내에서 확인할 수 있다.<br>
+🌐 IP 대역 정보 : `https://support.google.com/a/answer/10026322?hl=en`에서 CIDR 형태로 확인 가능<br>
 🌐 DNS/IP PORT 정보 : 443
 
 <br><br>
