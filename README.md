@@ -92,7 +92,27 @@ Youtube Lib는 Java1.8 이상부터 사용할 수 있다는 제약이 있다.
 ##  💾 데이터베이스 테이블 정보 
 ![image](https://github.com/jhc920403/spring_batch_youtube/assets/135422171/db70a747-1389-435a-baf3-801a063ccfc4)
 
-테이블은 2개로 구성
+### 이모지 설정
+- Youtube를 수집하다보면 이모지 텍스트도 종종 발견할 수 있으며, 정상적으로 수집하기 위해서는 문자 셋팅을 수정해야된다.
+  ```sql
+  update props$ set value$='KOREAN' where name='NLS_LANGUAGE';
+  update props$ set value$='KOREA' where name='NLS_TERRITORY';
+  update props$ set value$='AL32UTF8' where name='NLS_CHARACTERSET';
+  update props$ set value$='AL16UTF16' where name='NLS_NCHAR_CHARACTERSET';
+  
+  SHUTDOWN IMMEDIATE;
+  STARTUP MOUNT;
+  ALTER SYSTEM ENABLE RESTRICTED SESSION;
+  ALTER SYSTEM SET JOB_QUEUE_PROCESSES=0;
+  ALTER SYSTEM SET AQ_TM_PROCESSES=0;
+  ALTER DATABASE OPEN;
+  SHUTDOWN IMMEDIATE;
+  STARTUP;
+  ```
+
+<br>
+
+### 테이블은 2개로 구성
 - `YOUTUBE_CHANNEL`  : Youtube Channel의 동영상 업로드/재생목록 정보를 저장
   - 테이블 생성 DDL
     ```sql
